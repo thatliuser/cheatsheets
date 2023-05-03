@@ -1,5 +1,5 @@
-TEX = $(wildcard */*.tex */*/*.tex)
-OUT = $(patsubst %/main.tex,build/%/index.html,$(TEX))
+TEX := $(wildcard */*.tex */*/*.tex)
+OUT := $(patsubst %/main.tex,build/%/index.html,$(TEX))
 
 all: $(OUT)
 
