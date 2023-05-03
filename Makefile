@@ -7,9 +7,9 @@ clean:
 	rm -rf build
 
 build/%/index.html: %/main.tex
-	mkdir -p $$(dirname $@)
+	mkdir -p $(dir $@)
 	pandoc \
 		--standalone --embed-resources --mathml \
-		--resource-path=$$(dirname $<) \
-		--metadata title=$$(dirname $<) \
+		--resource-path=$(dir $<) \
+		--metadata title=$(dir $<) \
 		$< -o $@
