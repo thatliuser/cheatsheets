@@ -17,6 +17,7 @@
         \hline
         Binary & Octal & Decimal & Hex \\
         \hline
+        % Generated with Python lol
         0000 & 00 & 00 & 0 \\
         0001 & 01 & 01 & 1 \\
         0010 & 02 & 02 & 2 \\
@@ -87,8 +88,8 @@
 \end{itemize}
 \textbf{Binary coded decimal}
 \begin{itemize}
-    \item Each decimal digit is represented by 4 bits 
-    \item Certain range for each digit (A - F or 1010 - 1111) is invalid 
+    \item Each decimal digit is represented by 4 bits
+    \item Certain range for each digit (A - F or 1010 - 1111) is invalid
     \item To add, we have to skip this range; if the sum of two digits is above 1001 we must add 6 (0110) and propagate the carry to the next set of digits
     \item Ex. 2 + 9 =
     \begin{equation*}
@@ -99,13 +100,43 @@
               & 1 & 0 & 1 & 1 & \\
             + & 0 & 1 & 1 & 0 & \\
             \hline
-              & 0 & 0 & 0 & 1 & c 1\\ 
+              & 0 & 0 & 0 & 1 & c 1\\
         \end{array}
         = 0001 0001 = (11)_{10}
     \end{equation*}
 \end{itemize}
 \textbf{Boolean algebra}
 \begin{itemize}
-    \item 
+    \item Simplification theorems
+    \begin{itemize}
+        \item $(X \cdot Y) + (X \cdot \overline{Y}) = X$
+        \item $(X + Y) \cdot (X + \overline{Y}) = X$
+        \item $X + (X \cdot Y) = X$
+        \item $X \cdot (X + Y) = X$
+        \item $(X + \overline{Y}) \cdot Y = X \cdot Y$
+        \item $(X \cdot \overline{Y}) + Y = X + Y$
+    \end{itemize}
+    \item Demorgan's law: $\overline{(X + Y)} = \overline{X} \cdot \overline{Y}$, $\overline{(X \cdot Y)} = \overline{X} + \overline{Y}$
+    \item Consensus theorem
+    \begin{itemize}
+        \item $X \cdot Y + Y \cdot Z + \overline{X} \cdot Z = X \cdot Y + \overline{X} \cdot Z$
+        \item $(X + Y) \cdot (Y + Z) \cdot (\overline{X} + Z) = (X + Y) \cdot (\overline{X} + Z)$
+    \end{itemize}
+    \item There are $2^{2^n}$ possible functions for $n$ one-bit inputs.
+\end{itemize}
+\textbf{Two-level logic}
+\begin{itemize}
+    \item Minterm: an AND of each input together, complemented if its value is 0.
+    \item Sum of Products: minterms added together to represent a function. 0 outputs are excluded.
+    \item Maxterm: an OR of each input together, complemented if its value is 1.
+    \item Product of Sums: maxterms multiplied together to represent a function. 1 outputs are excluded.
+\end{itemize}
+\textbf{K-maps}
+\begin{itemize}
+    \item You can ONLY group bits in sizes of $2^n$.
+    \item You can ONLY group bits in rectangles / squares.
+    \item Maps overflow back around the edges.
+    \item SOP form: simply circle the largest groups of 1s and see which variables have to be on or off for the range to work. Each group is a SOP term and multiplied together to form the function..
+    \item POS form: circle the largest groups of 0s and see which variables have to be on or off to work. Each group is a POS term (inverted!) and added together to form the function.
 \end{itemize}
 \end{document}
