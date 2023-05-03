@@ -19,7 +19,7 @@ jobs:
           brew update
           brew install pandoc
       - name: Build
-        run: make
+        run: make html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1.0.7
         with:
