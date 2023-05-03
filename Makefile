@@ -1,12 +1,12 @@
 TEX = $(wildcard */*.tex */*/*.tex)
-OUT = $(patsubst %.tex,build/%.html,$(TEX))
+OUT = $(patsubst %/main.tex,build/%/index.html,$(TEX))
 
 all: $(OUT)
 
 clean:
 	rm -rf build
 
-build/%.html: %.tex
+build/%/index.html: %/main.tex
 	mkdir -p $$(dirname $@)
 	pandoc \
 		--standalone --embed-resources --mathml \
