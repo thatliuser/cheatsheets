@@ -1,0 +1,72 @@
+\documentclass[10pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+
+\title{Review Note Page}
+\author{}
+\date{December 2021}
+
+\begin{document}
+\scriptsize
+$\textbf{N} = \{ 0, 1, 2, 3, ...\}$,
+$\textbf{Z} = \{0, 1, -1, 2, -2, ...\}$,
+$\textbf{Q} = \{\left(\frac{a}{b}\right): (a, b) \in \textbf{Z}\}$ \\\\
+Implies: \hspace{4cm} Biconditional:\\
+\begin{tabular}{c|c|c}
+    A & B & $A \rightarrow B$ \\
+    \hline
+    0 & 0 & 1 \\
+    0 & 1 & 1 \\
+    1 & 0 & 0 \\
+    1 & 1 & 1 \\
+\end{tabular} \hspace{2cm}
+\begin{tabular}{c|c|c}
+    A & B & A iff B \\
+    \hline
+    0 & 0 & 1 \\
+    0 & 1 & 0 \\
+    1 & 0 & 0 \\
+    1 & 1 & 1 \\
+\end{tabular} \\
+
+A \textbf{well formed formula} of the set of vars $\mathcal{P}$: \\
+- 1 or 0 (true or false) \\
+- A variable from $\mathcal{P}$. \\
+- A conjunction of two formulas using a logically complete set of ops (e.g. $\{\wedge, \neg\}$)
+
+A \textbf{truth assignment} is a map of a set $\mathcal{P}$ to $\mathbf{B}$ (bools). \\
+\[t(A \wedge B) = t(A) \wedge t(B), t(\neg{A}) = \neg{t(A)}\]
+The pointy gate is OR. The triangular gate is NOT. \\
+$\neg{\forall A} = \exists A, \neg{\exists A} = \forall A$,
+$|\mathcal{P}(x)| = 2^{|x|}$
+
+A group is must have these three properties: \\
+- Associative - $(A \cdot B) \cdot C = A \cdot (B \cdot C)$ \\
+- There exists an identity - $X \cdot i = i \cdot X = X$ \\
+- There exists an inverse to create the identity - $X \cdot Y = i$ \\
+
+Number Theory is simple: \\
+- 0 as a constant \\
+- The comparision operator < \\
+- Functions: successor, addition, multiplication, exponentiation, equality. \\
+
+Relation (R): \\
+- Reflexive: a is related to itself ($a R a$) \\
+- Symmetric: goes both ways ($a R b \rightarrow b R a$) \\
+- Transitive: if $a R b$ and $b R c, a R c$ \\
+
+A regular language: \\
+- Kleene star - permutations of a string / alphabet \\
+- Concatenations of strings \\
+- Singletons derivated from the base alphabet \\
+- Other regular langs \\
+
+Big O: $(\exists c)(\exists N)(\forall n \geq N)(f(n) \leq cn)$ \\
+
+Graph: an ordered pair (V, E) where V is a finite, nonempty set of identifiers, and E is a set of two-element subsets of V (the edges) \\
+Two graphs G and G' are isomorphic if there is a func $\pi(x)$ that maps a point \{v, w\} from G to $\{\pi(v), \pi(w)\}$ from G'. \\
+Hamiltonian: cross all points once. Eulerian: cross all edges once. The sum of the degrees of all points in a graph must be 2 times the edges (always an even number) \\
+log(n!) is about nlogn. \\
+A clique is a graph with very possible point connected to each other. The number of edges in a clique of $n$ points is $_nC_2$.
+
+\end{document}

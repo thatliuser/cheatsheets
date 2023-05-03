@@ -1,0 +1,27 @@
+\documentclass[letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[left=1cm,right=0.5cm,bottom=0.5cm,top=0.5cm]{geometry}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{pdfpages}
+\usepackage[open]{bookmark}
+\setstretch{0}
+
+\newcommand{\bm}[2]{
+    \pdfbookmark[section]{#1}{#1}
+    \includepdf[pages=#2]{summary_merged.pdf}
+}
+
+\begin{document}
+\bm{Basic Waves}{1}
+\bm{Sound}{2-3}
+\bm{Light}{9-10}
+\bm{Optics}{11-12}
+\bm{Interference}{13}
+\bm{Diffraction}{14}
+\bm{Heat}{4}
+\bm{Matter and Temperature}{5-6}
+\bm{1st Law of Thermodynamics}{7}
+\bm{2nd Law of Thermodynamics}{{8,15}}
+\end{document}
