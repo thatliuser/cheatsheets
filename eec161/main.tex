@@ -1,4 +1,5 @@
-\documentclass{article}
+\documentclass[8pt]{article}
+\usepackage{extsizes}
 \usepackage[utf8]{inputenc}
 \usepackage[left=1cm,right=0.5cm,bottom=0.5cm,top=0.5cm]{geometry}
 \usepackage{setspace}
@@ -44,7 +45,6 @@
     \item Permutations: $(n)_k = \frac{n!}{(n - k)!}$, combinations: ${n \choose k} = \frac{n!}{k!(n - k)!}$
     \item Given $m$ objects, there are $m^n$ ways to choose an ordered sequence of $n$ objects.
     \item For $n$ subexperiments ($S = \{ 0, 1 \}$), the number of sequences with 0 appearing $n_0$ and 1 appearing $n_1 = n - n_0$ times is ${n \choose n_1}$.
-    \item For $n$ repetitionsof a subexperiment with
 \end{itemize}
 \textbf{Discrete Random Variables}
 \begin{itemize}
@@ -127,5 +127,12 @@
         & & $\mu$ & $\sigma^2$ \\
         \hline
     \end{tabular}
+\end{itemize}
+\textbf{Gaussian}
+\begin{itemize}
+    \item Standard normal func: $\Phi(z) = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^z e^{-u^2/2} du$
+    \item $F_X(x) = \Phi\left(\frac{x - \mu}{\sigma}\right)$
+    \item $P[a < X \leq b] = \Phi\left(\frac{b - \mu}{\sigma}\right) - \Phi\left(\frac{a - \mu}{\sigma}\right)$
+    \item $\Phi(-z) = 1 - \Phi(z)$, $Q(z) = 1 - \Phi(z)$
 \end{itemize}
 \end{document}
