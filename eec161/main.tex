@@ -1,0 +1,131 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[left=1cm,right=0.5cm,bottom=0.5cm,top=0.5cm]{geometry}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\setstretch{0}
+\setlist{nosep}
+
+\begin{document}
+\textbf{Set Theory}
+\begin{itemize}
+    \item $S$ is the universal set - the set that contains all things of interest.
+    \item Two sets $A$ and $B$ are mutually exclusive if $A \cap B = \emptyset$.
+    \item Two sets $A$ and $B$ are collectively exhaustive if $A \cup B = S$.
+    \item Outcome - singular possible observation of an experiment
+    \item Sample space - all possible outcomes of an experiment ($S$)
+    \item Event - collection of outcomes
+\end{itemize}
+\textbf{Probability Axioms}
+\begin{itemize}
+    \item $P[S] = 1$
+    \item $P[\emptyset] = 0$
+    \item For any event $A$, $P[A^c] = 1 - P[A]$.
+    \item For any event $A$, $P[A] \geq 0$.
+    \item For mutually exclusive events $A$ and $B$, $P[A \cup B] = P[A] + P[B]$.
+    \item For any events $A$ and $B$, $P[A \cup B] = P[A] + P[B] - P[A \cap B]$.
+    \item If $A \subset B$, then $P[A] \leq P[B]$.
+    \item The probability of an event is the sum of the probabilities of the outcomes.
+\end{itemize}
+\textbf{Conditional Probability}
+\begin{itemize}
+    \item Conditional probability of an event $A$ occurring given that event $B$ occurred:
+    \item $P[A | B] = \frac{P[AB]}{P[B]}$.
+    \item A set can be split up and re-added together, and so can its probabilities:
+    \item $A = A \cap B + A \cap C$ where $B \cap C = \emptyset$ and $B \cup C = S$
+    \item $P[B | A] = \frac{P[A|B]P[B]}{P[A]}$.
+    \item Two events $A$ and $B$ are independent if $P[AB] = P[A]P[B]$.
+    \item If two events $A$ and $B$ are independent, $A^c$ and $B^c$ are also independent.
+\end{itemize}
+\textbf{Sequential Experiments}
+\begin{itemize}
+    \item Permutations: $(n)_k = \frac{n!}{(n - k)!}$, combinations: ${n \choose k} = \frac{n!}{k!(n - k)!}$
+    \item Given $m$ objects, there are $m^n$ ways to choose an ordered sequence of $n$ objects.
+    \item For $n$ subexperiments ($S = \{ 0, 1 \}$), the number of sequences with 0 appearing $n_0$ and 1 appearing $n_1 = n - n_0$ times is ${n \choose n_1}$.
+    \item For $n$ repetitionsof a subexperiment with
+\end{itemize}
+\textbf{Discrete Random Variables}
+\begin{itemize}
+    \item PMF | $P_X(x) = P[X = x]$
+    \item CDF | $F_X(x) = P[X \leq x]$
+    \item For CDF, only the non-zero (infinite) slopes are discrete cases.
+    \item $F_X(b) - F_X(a) = P[a < X \leq b]$
+    \item Expected value | $E[X] = \mu_X = \sum_{x \in S_X} xP_X(x)$
+    \item Derived random vars | $Y = g(X)$
+    \item $P_Y(y) = \sum_{x:g(x) = y} P_X(x)$
+    \item $E[Y] = \mu_Y = \sum_{x \in S_X} g(x) P_X(x)$
+    \item $E[X - \mu_X] = 0$, $E[aX + b] = aE[X] + b$
+    \item $Var[X] = E[X^2] - \mu_X^2$, $n$th moment is $E[X^n]$, $n$th central moment is $E[(X - \mu_X)^n]$.
+    \item $Var[aX + b] = a^2 Var[X]$
+    \item Standard deviation | $\sigma_X = \sqrt{Var[X]}$
+    \item
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        Name & PMF & $E[X]$ & $Var[X]$ \\
+        \hline
+        Bernoulli & $P_X(x) = \begin{cases}
+            1 - p & x = 0, \\
+            p & x = 1, \\
+            0 & else \\
+        \end{cases}$ & $p$ & $p(1 - p)$ \\
+        Geometric & $P_X(x) = \begin{cases}
+            p (1 - p)^{x - 1} & x = 1, 2, \mathellipsis, \\
+            0 & else \\
+        \end{cases}$ & $1/p$ & $(1 - p)/p^2$ \\
+        Binomial & $P_X(x) = \begin{cases}
+            {n \choose x} p^x (1 - p)^{n - x} & n \geq 1 \\
+        \end{cases}$ & $np$ & $np(1 - p)$ \\
+        Pascal & $P_X(x) = \begin{cases}
+            {x - 1 \choose k - 1} p^k (1 - p)^{x - k} & k \geq 1 \\
+        \end{cases}$ & $k/p$ & $k(1 - p)/p^2$ \\
+        Poisson & $P_X(x) = \begin{cases}
+            \alpha^x e^{-\alpha}/x! & x = 0, 1, \mathellipsis, \\
+            0 & else \\
+        \end{cases}$ & $\alpha$ & $\alpha$ \\
+        Discrete Uniform & $P_X(x) = \begin{cases}
+            1/(l - k + 1) & x  = k, k + 1, \mathellipsis, l \\
+            0 & else \\
+        \end{cases}$ & $(k + l)/2$ & $(l - k)(l - k + 2)/12$ \\
+        \hline
+    \end{tabular}
+\end{itemize}
+\textbf{Continous Random Variables}
+\begin{itemize}
+    \item PDF | $f_X(x) = \frac{dF_X(x)}{dx}$
+    \item CDF from PDF | $F_X(x) = \int_{-\infty}^x f_X(u)du$
+    \item $\int_{-\infty}^\infty f_X(x)dx = 1$
+    \item $P[x_1 < X \leq x_2] = \int_{x_1}^{x_2} f_X(x)dx$
+    \item $E[X] = \int_{-\infty}^{\infty} x f_X(x)dx$
+    \item $E[g(X)] = \int_{-\infty}^{\infty} g(x) f_X(x)dx$
+    \item
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        Name & PDF & CDF & $E[X]$ & $Var[X]$ \\
+        \hline
+        Uniform & $f_X(x) = \begin{cases}
+            1/(b - a) & a \leq x < b, \\
+            0 & else \\
+        \end{cases}$ & $F_X(x) = \begin{cases}
+            0 & x \leq a, \\
+            (x - a)/(b - a) & a < x \leq b, \\
+            1 & x > b \\
+        \end{cases}$ & $(b + a)/2$ & $(b - a)^2/12$ \\
+        Exponential & $f_X(x) = \begin{cases}
+            \lambda e^{-\lambda x} & x \geq 0, \\
+            0 & else \\
+        \end{cases}$ & $F_X(x) = \begin{cases}
+            1 - e^{-\lambda x} &x \geq 0, \\
+            0 & else \\
+        \end{cases}$ & $1/\lambda$ & $1/\lambda^2$ \\
+        Erlang & $f_X(x) = \begin{cases}
+            \lambda^n x^{n - 1} e^{-\lambda x}/(n - 1)! & x \geq 0, \\
+            0 & else \\
+        \end{cases}$ & & $n/\lambda$ & $n/\lambda^2$ \\
+        Gaussian & $f_X(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} e^{-(x - \mu)^2/2 \sigma^2}$
+        & & $\mu$ & $\sigma^2$ \\
+        \hline
+    \end{tabular}
+\end{itemize}
+\end{document}

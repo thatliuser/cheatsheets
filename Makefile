@@ -33,4 +33,5 @@ build/index.html: build/index.md
 	pandoc --standalone --metadata title=Cheatsheets $< -o $@
 
 build/%.pdf: %.tex
+	mkdir -p $(dir $@)
 	tectonic $< -o $(dir $@)
