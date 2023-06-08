@@ -1,0 +1,163 @@
+\documentclass[8pt]{article}
+\usepackage{extsizes}
+\usepackage[utf8]{inputenc}
+\usepackage[left=1cm,right=0.5cm,bottom=0.5cm,top=0.5cm]{geometry}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\setstretch{0}
+\setlist{nosep}
+
+\begin{document}
+\textbf{Set Theory}
+\begin{itemize}
+    \item $S$ is the universal set - the set that contains all things of interest.
+    \item Two sets $A$ and $B$ are mutually exclusive if $A \cap B = \emptyset$.
+    \item Two sets $A$ and $B$ are collectively exhaustive if $A \cup B = S$.
+    \item Outcome - singular possible observation of an experiment
+    \item Sample space - all possible outcomes of an experiment ($S$)
+    \item Event - collection of outcomes
+\end{itemize}
+\textbf{Probability Axioms}
+\begin{itemize}
+    \item $P[S] = 1$
+    \item $P[\emptyset] = 0$
+    \item For any event $A$, $P[A^c] = 1 - P[A]$.
+    \item For any event $A$, $P[A] \geq 0$.
+    \item For mutually exclusive events $A$ and $B$, $P[A \cup B] = P[A] + P[B]$.
+    \item For any events $A$ and $B$, $P[A \cup B] = P[A] + P[B] - P[A \cap B]$.
+    \item If $A \subset B$, then $P[A] \leq P[B]$.
+    \item The probability of an event is the sum of the probabilities of the outcomes.
+\end{itemize}
+\textbf{Conditional Probability}
+\begin{itemize}
+    \item Conditional probability of an event $A$ occurring given that event $B$ occurred:
+    \item $P[A | B] = \frac{P[AB]}{P[B]}$.
+    \item A set can be split up and re-added together, and so can its probabilities:
+    \item $A = A \cap B + A \cap C$ where $B \cap C = \emptyset$ and $B \cup C = S$
+    \item $P[B | A] = \frac{P[A|B]P[B]}{P[A]}$.
+    \item Two events $A$ and $B$ are independent if $P[AB] = P[A]P[B]$.
+    \item If two events $A$ and $B$ are independent, $A^c$ and $B^c$ are also independent.
+\end{itemize}
+\textbf{Sequential Experiments}
+\begin{itemize}
+    \item Permutations: $(n)_k = \frac{n!}{(n - k)!}$, combinations: ${n \choose k} = \frac{n!}{k!(n - k)!}$
+    \item Given $m$ objects, there are $m^n$ ways to choose an ordered sequence of $n$ objects.
+    \item For $n$ subexperiments ($S = \{ 0, 1 \}$), the number of sequences with 0 appearing $n_0$ and 1 appearing $n_1 = n - n_0$ times is ${n \choose n_1}$.
+\end{itemize}
+\textbf{Discrete Random Variables}
+\begin{itemize}
+    \item PMF | $P_X(x) = P[X = x]$
+    \item CDF | $F_X(x) = P[X \leq x]$
+    \item For CDF, only the non-zero (infinite) slopes are discrete cases.
+    \item $F_X(b) - F_X(a) = P[a < X \leq b]$
+    \item Expected value | $E[X] = \mu_X = \sum_{x \in S_X} xP_X(x)$
+    \item Derived random vars | $Y = g(X)$
+    \item $P_Y(y) = \sum_{x:g(x) = y} P_X(x)$
+    \item $E[Y] = \mu_Y = \sum_{x \in S_X} g(x) P_X(x)$
+    \item $E[X - \mu_X] = 0$, $E[aX + b] = aE[X] + b$
+    \item $Var[X] = E[X^2] - \mu_X^2$, $n$th moment is $E[X^n]$, $n$th central moment is $E[(X - \mu_X)^n]$.
+    \item $Var[aX + b] = a^2 Var[X]$
+    \item Standard deviation | $\sigma_X = \sqrt{Var[X]}$
+    \item
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        Name & PMF & $E[X]$ & $Var[X]$ \\
+        \hline
+        Bernoulli & $P_X(x) = \begin{cases}
+            1 - p & x = 0, \\
+            p & x = 1, \\
+            0 & else \\
+        \end{cases}$ & $p$ & $p(1 - p)$ \\
+        Geometric & $P_X(x) = \begin{cases}
+            p (1 - p)^{x - 1} & x = 1, 2, \ldots, \\
+            0 & else \\
+        \end{cases}$ & $1/p$ & $(1 - p)/p^2$ \\
+        Binomial & $P_X(x) = \begin{cases}
+            {n \choose x} p^x (1 - p)^{n - x} & n \geq 1 \\
+        \end{cases}$ & $np$ & $np(1 - p)$ \\
+        Pascal & $P_X(x) = \begin{cases}
+            {x - 1 \choose k - 1} p^k (1 - p)^{x - k} & k \geq 1 \\
+        \end{cases}$ & $k/p$ & $k(1 - p)/p^2$ \\
+        Poisson & $P_X(x) = \begin{cases}
+            \alpha^x e^{-\alpha}/x! & x = 0, 1, \ldots, \\
+            0 & else \\
+        \end{cases}$ & $\alpha$ & $\alpha$ \\
+        Discrete Uniform & $P_X(x) = \begin{cases}
+            1/(l - k + 1) & x  = k, k + 1, \ldots, l \\
+            0 & else \\
+        \end{cases}$ & $(k + l)/2$ & $(l - k)(l - k + 2)/12$ \\
+        \hline
+    \end{tabular}
+\end{itemize}
+\textbf{Continous Random Variables}
+\begin{itemize}
+    \item PDF | $f_X(x) = \frac{dF_X(x)}{dx}$
+    \item CDF from PDF | $F_X(x) = \int_{-\infty}^x f_X(u)du$
+    \item $\int_{-\infty}^\infty f_X(x)dx = 1$
+    \item $P[x_1 < X \leq x_2] = \int_{x_1}^{x_2} f_X(x)dx$
+    \item $E[X] = \int_{-\infty}^{\infty} x f_X(x)dx$
+    \item $E[g(X)] = \int_{-\infty}^{\infty} g(x) f_X(x)dx$
+    \item
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        Name & PDF & CDF & $E[X]$ & $Var[X]$ \\
+        \hline
+        Uniform & $f_X(x) = \begin{cases}
+            1/(b - a) & a \leq x < b, \\
+            0 & else \\
+        \end{cases}$ & $F_X(x) = \begin{cases}
+            0 & x \leq a, \\
+            (x - a)/(b - a) & a < x \leq b, \\
+            1 & x > b \\
+        \end{cases}$ & $(b + a)/2$ & $(b - a)^2/12$ \\
+        Exponential & $f_X(x) = \begin{cases}
+            \lambda e^{-\lambda x} & x \geq 0, \\
+            0 & else \\
+        \end{cases}$ & $F_X(x) = \begin{cases}
+            1 - e^{-\lambda x} &x \geq 0, \\
+            0 & else \\
+        \end{cases}$ & $1/\lambda$ & $1/\lambda^2$ \\
+        Erlang & $f_X(x) = \begin{cases}
+            \lambda^n x^{n - 1} e^{-\lambda x}/(n - 1)! & x \geq 0, \\
+            0 & else \\
+        \end{cases}$ & & $n/\lambda$ & $n/\lambda^2$ \\
+        Gaussian & $f_X(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} e^{-(x - \mu)^2/2 \sigma^2}$
+        & & $\mu$ & $\sigma^2$ \\
+        \hline
+    \end{tabular}
+\end{itemize}
+\textbf{Gaussian}
+\begin{itemize}
+    \item Standard normal func: $\Phi(z) = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^z e^{-u^2/2} du$
+    \item $F_X(x) = \Phi\left(\frac{x - \mu}{\sigma}\right)$
+    \item $P[a < X \leq b] = \Phi\left(\frac{b - \mu}{\sigma}\right) - \Phi\left(\frac{a - \mu}{\sigma}\right)$
+    \item $\Phi(-z) = 1 - \Phi(z)$, $Q(z) = 1 - \Phi(z)$
+\end{itemize}
+\textbf{Multiple Random Variables}
+\begin{itemize}
+    \item Joint CDF | $F_{X,Y}(x,y) = P[X \leq x, Y \leq y]$
+    \item Properties | $0 \leq F_{X,Y}(x, y) \leq 1$ | $F_{X,Y}(\infty, \infty) = 1$ | $F_X(x) = F_{X,Y}(x, \infty)$, same for y | $F_{X,Y}(x, \infty) = 0$, same for y
+    \item Joint PMF | $P_{X,Y}(x, y) = P[X = x, y = y]$, Marginal PMF | $P_X(x) = \sum_{y \in S_Y} P_{X,Y}(x, y)$, flipped for y
+    \item Joint PDF | $f_{X,Y}(x, y) = \frac{\partial^2 F_{X,Y}(x, y)}{\partial x \partial y}$ and $F_{X,Y}(x, y) = \int_{-\infty}^x \int_{-\infty}^y f_{X,Y}(u, v) dv du$
+    \item Properties of Joint PDF | $f_{X,Y}(x, y) \geq 0$ always, and $\int_{-\infty}^\infty \int_{-\infty}^\infty f_{X,Y}(x, y) dxdy = 1$
+    \item Marginal PDF | $f_X(x) = \int_{-\infty}^\infty f_{X,Y}(x, y)dy$, $f_Y(y) = \int_{-\infty}^\infty f_{X,Y}(x, y)dx$
+    \item Independence | X and Y are independent only if $P_{X,Y}(x, y) = P_X(x) P_Y(y)$ for discrete, and $f_{X,Y}(x, y) = f_X(x)f_Y(y)$ for continuous.
+    \item Expected value of $W = g(X, Y)$ | $E[W]= \sum_{x \in S_X} \sum_{y \in S_Y} g(x, y) P_{X,Y}(x, y)$ for discrete, $E[W] = \int_{-\infty}^\infty \int_{-\infty}^\infty g(x, y)f_{X,Y}(x, y)dxdy$ for continuous.
+    % Might want to condense this line later
+    \item $E[X + Y] = E[X] + E[Y]$
+    \item Correlation $r_{X,Y} = E[XY]$ | $Cov[X, Y] = r_{X,Y} - \mu_X \mu_Y$ | $Var[X + Y] = Var[X] + Var[Y] + 2Cov[X, Y]$
+    \item Correlation coefficient $\rho_{X,Y} = \frac{Cov[X, Y]}{\sigma_X \sigma_Y}$ | $-1 \leq \rho_{X,Y} \leq 1$
+    \item If $X = Y$, $Cov[X, Y] = Var[X]$, $r_{X,Y} = E[X^2]$.
+    \item If $r_{X,Y} = 0$, $X$ and $Y$ are orthogonal. If $Cov[X, Y] = 0$, $X$ and $Y$ are uncorrelated.
+    \item For independent vars $X$ and $Y$, $r_{X,Y} = E[XY] = E[X]E[Y]$, $Cov[X, Y] = \rho_{X,Y} = 0$, $Var[X + Y] = Var[X] + Var[Y]$.
+    % TODO: Bivariate Gaussian distributions? Not sure how useful these are
+    % TODO: Do multivariate probability models? Maybe not, chapter 8 seems to cover matrix ops
+\end{itemize}
+\textbf{Models of Derived Random Variables}
+\begin{itemize}
+    % TODO: Finish!
+    \item ...
+\end{itemize}
+\end{document}
