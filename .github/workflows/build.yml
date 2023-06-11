@@ -17,9 +17,9 @@ jobs:
       - name: Download Pandoc
         run: |
           brew update
-          brew install pandoc
+          brew install pandoc tectonic
       - name: Build
-        run: make html
+        run: make
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1.0.7
         with:
