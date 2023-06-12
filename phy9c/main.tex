@@ -5,6 +5,7 @@
 \usepackage{setspace}
 \usepackage{graphicx}
 \usepackage{amsmath}
+\usepackage{mathabx}
 \usepackage{enumitem}
 \setstretch{0}
 \setlist{nosep}
@@ -13,8 +14,58 @@
 % https://phys.libretexts.org/Courses/University_of_California_Davis/UCD%3A_Physics_9C__Electricity_and_Magnetism
 \begin{document}
 \textbf{Electrostatics}
+\begin{enumerate}
+    \item Gauss's law: For highly symmetric systems, you can use Gauss's law to find the electric field:
+    \begin{enumerate}
+        \item Use symmetry to determine the direction of $\vec{E}$ and what type of coordinate system it should be in.
+        \item Pick a surface that $\vec{E}$ is entirely perpendicular to (and where the magnitude of the field is constant)
+        \item Calculate the flux of the electric field relative to the bounding shape you used.
+        \item Apply Gauss's law to find the magnitude of the field.
+        \item Ex: for an infinite sheet you can choose a cylinder to calculate the flux since it spreads infinitely in all directions.
+        \item Relevant formulas: $\int_S \vec{E} \cdot d\vec{A} = \Phi = \frac{Q_{en}}{\epsilon_0}$
+    \end{enumerate}
+\end{enumerate}
 \textbf{Moving electric forces}
+\begin{enumerate}
+    \item KCL and KVL: Net voltage drop around a closed loop is 0; Net current into a node = net current out of the node.
+\end{enumerate}
 \textbf{Magnetism}
+\begin{enumerate}
+    \item When calculating $\vec{F}_{mag}$, note that $\vec{l}$ is parallel to the direction of current flow.
+    \item $\vec{B}_{circle} = \frac{\mu_0 I}{2R}$
+    \item Biot-Savart: In the $\vec{B}_{line}$ integral, $R$ represents distance between point and the closest point that emits ${\vec{B}}$.
+    \item In a uniform magnetic field, a semicircle experiences no net $\vec{F}_{mag}$; it cancels.
+    \item To integrate a circle of wire, use $\vec{r} = R \hat{r}$ and $d\vec{l} = R \phi d\hat{\phi}$.
+    \item Magnetic force RHR: Fingertips are current, palm direction is magnetic field, thumb is magnetic force.
+    \item Ampere's law: For highly symmetric systems, you can use Ampere's law to find the magnetic field:
+    \begin{enumerate}
+        \item Use symmetry to determine the general direction of $\vec{B}$
+        \item Choose a closed path \textit{around} parallel to $\vec{B}$ where the magnitude of the field is constant.
+        \item Make sure you're using the right integrand (is it radial?) and $d\vec{A}$ is normal to the plane of the closed path.
+        \item Calculate the enclosed current and use Ampere's law to solve for $\vec{B}$.
+        \item Relevant formulas: $\int_C \vec{B} \cdot d\vec{l} = \mu_0 I_{en}$, $I_{en} = \int_S \vec{J} \cdot d\vec{A}$
+    \end{enumerate}
+    \item $\vec{\tau}$ = Magnetic torque, $\vec{\mu}$ = Magnetic dipole moment.
+\end{enumerate}
 \textbf{Electromagnetism}
-\textbf{Circuits}
+\begin{enumerate}
+    \item The area vector $\vec{A}$ is perpendicular to the plane where the object exists.
+    \item Lenz's Law right-hand rule: if $\frac{d \Phi}{dt} < 0$, $\vec{B}_{ind} \upuparrows \vec{B}_{ext}$. if $\frac{d \Phi}{dt} > 0$, $\vec{B}_{ext} \updownarrows \vec{B}_{ext}$.
+    \item You can derive the wave equation from the source-free versions of Maxwell's equations:
+    \begin{enumerate}
+        \item Take the curl ($\nabla \times$) of the relation between $\vec{E}$ and $-\frac{d\vec{B}}{dt}$
+        \item $-\nabla^2 \vec{E} = -\mu_0 \epsilon_0 \frac{\partial^2 \vec{E}}{\partial t}$
+    \end{enumerate}
+\end{enumerate}
+\textbf{Units}
+\begin{itemize}
+    \item $[P] (power) = W = \frac{kg \cdot m^2}{s^3}$
+    \item $[F] (force) = N = \frac{kg \cdot m}{s^2}$
+    \item $[U] (energy) = J = \frac{kg \cdot m^2}{s^2}$
+\end{itemize}
+\textbf{Misc}
+\begin{itemize}
+    \item $\hat{r} = \cos{\theta} \hat{i} + \sin{\theta} \hat{j}$
+    \item $\hat{\phi} = -\sin{\theta} \hat{i} + \cos{\theta} \hat{j}$
+\end{itemize}
 \end{document}
