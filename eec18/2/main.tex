@@ -126,23 +126,70 @@
     \end{itemize}
     \item There are $2^{2^n}$ possible functions for $n$ one-bit inputs.
 \end{itemize}
-\textbf{Two-level logic}
+\textbf{Combinational logic}
 \begin{itemize}
     \item Minterm: an AND of each input together, complemented if its value is 0.
     \item Sum of Products: minterms added together to represent a function. 0 outputs are excluded.
     \item Maxterm: an OR of each input together, complemented if its value is 1.
     \item Product of Sums: maxterms multiplied together to represent a function. 1 outputs are excluded.
+    \item K-maps
+    \begin{itemize}
+        \item You can ONLY group bits in sizes of $2^n$.
+        \item You can ONLY group bits in rectangles / squares.
+        \item Maps overflow back around the edges.
+        \item SOP form: simply circle the largest groups of 1s and see which variables have to be on or off for the range to work. Each group is a SOP term and multiplied together to form the function..
+        \item POS form: circle the largest groups of 0s and see which variables have to be on or off to work. Each group is a POS term (inverted!) and added together to form the function.
+    \end{itemize}
+    \item Hazards and glitches
+    \begin{itemize}
+        \item Two types: static and dynamic. Static = unwanted pulse, dynamic = unwanted change (e.g. 0 when 1 desired)
+        \item Preventing static hazards: ensure no disconnected groups in K-maps; all groups should have at least 1 overlap.
+        \item SOP: static-1 hazards can occur where the output pulses to 1 when it's meant to stay at 0.
+        \item POS: static-0 hazards can occur with the same idea as SOP.
+    \end{itemize}
 \end{itemize}
-\textbf{K-maps}
+\textbf{Logic tech}
 \begin{itemize}
-    \item You can ONLY group bits in sizes of $2^n$.
-    \item You can ONLY group bits in rectangles / squares.
-    \item Maps overflow back around the edges.
-    \item SOP form: simply circle the largest groups of 1s and see which variables have to be on or off for the range to work. Each group is a SOP term and multiplied together to form the function..
-    \item POS form: circle the largest groups of 0s and see which variables have to be on or off to work. Each group is a POS term (inverted!) and added together to form the function.
+    \item Multiplexers: select 1 of $2^n$ bits as output, based on $n$-bit selector.
+    \item You can use multiplexers to split up complex K-maps into smaller groups: choose $n$ variables as selectors!
+    \item BE SURE to connect the sub-functions for each portion to the correct input based on selectors! Ex: $0 = \bar{S_1}\bar{S_0}$, $2 = S_1\bar{S_0}$.
+    \item Demultiplexer: choose one of $2^n$ bits as output, based on $n$-bit selector and 1-bit input.
+    \item Same principle as multiplexer but backwards. Useful as a kind of switch.
+    \item You can hook the input bit to 1 and choose output bits fed to an OR gate to generate functions, based on minterms.
+    \item PLAs and PALs: PLAs have programmable AND and OR arrays, PALs have hardcoded OR arrays.
+    \item Z state: high impedance; acts as if output is disconnected from parent circuit.
 \end{itemize}
 \textbf{Sequential logic}
 \begin{itemize}
-    \item lzskdjflsdkfj
+    \item Sync vs async circuits: sync only updates \texttt{@(posedge clk)}, async updates anytime.
+    \item Latches: can hold state by abusing propagation delay
+    \item Flip-flops: latches but synchronous, only updateable on \texttt{@(posedge clk)} which is less prone to glitches.
+    \item Clocks: Rectangular signals with a regular period. Duty cycle is the percent time the clock is high per period.
+    \item Registers: $n$ flip-flops cascaded together
+\end{itemize}
+\textbf{Flip-flop types}
+\begin{itemize}
+    \item RS | reset-set inputs. 1 and 1 is an invalid state because it may cause oscillation.
+    \item JK | jump-kill inputs. All inputs are valid, 1 and 1 state oscillates at half the clock speed so it's controlled. (toggle mode)
+    \item T | toggle input. No invalid state.
+    \item D | data input. Also no invalid state; the flip flop will simply set itself to the value of D.
+\end{itemize}
+\begin{tabular}{|cc|cc|cc|c|c|}
+    \hline
+    $Q$ & $Q^+$ & $R$ & $S$ & $J$ & $K$ & $T$ & $D$ \\
+    \hline
+    0 & 0 & X & 0 & 0 & X & 0 & 0 \\
+    0 & 1 & 0 & 1 & 1 & X & 1 & 1 \\
+    1 & 0 & 1 & 0 & X & 1 & 1 & 0 \\
+    1 & 1 & 0 & X & X & 0 & 0 & 1 \\
+    \hline
+\end{tabular}
+\textbf{Finite state machines}
+\begin{itemize}
+    \item Moore machine: output logic depends only on current state. Slower but more stable.
+    \item Mealy machine: output logic depends on state and current input. Glitcher but faster.
+    \item Counters: FSMs that cycle through a specific sequence.
+    \item Self-starting counters: counters that account for "invalid states" and direct them to a valid path.
+    \item General layout of FSMs: Inputs, update logic, register, and output logic.
 \end{itemize}
 \end{document}
