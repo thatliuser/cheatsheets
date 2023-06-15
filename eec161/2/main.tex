@@ -95,9 +95,10 @@
 \end{itemize}
 \textbf{Continous Random Variables}
 \begin{itemize}
-    \item PDF | $f_X(x) = \frac{dF_X(x)}{dx}$
-    \item CDF from PDF | $F_X(x) = \int_{-\infty}^x f_X(u)du$
-    \item $\int_{-\infty}^\infty f_X(x)dx = 1$
+    \item PDF - Probability distribution function | $f_X(x) = \frac{dF_X(x)}{dx}$
+    \item PDFs \textbf{never} have a negative slope. Some sort of line from 0 to 1.
+    \item CDF (cumulative distribution function) from PDF | $F_X(x) = \int_{-\infty}^x f_X(u)du$
+    \item $\int_{-\infty}^\infty f_X(x)dx = 1$ (integral of CDF over all X must equal 1)
     \item $P[x_1 < X \leq x_2] = \int_{x_1}^{x_2} f_X(x)dx$
     \item $E[X] = \int_{-\infty}^{\infty} x f_X(x)dx$
     \item $E[g(X)] = \int_{-\infty}^{\infty} g(x) f_X(x)dx$
@@ -159,7 +160,44 @@
 \end{itemize}
 \textbf{Models of Derived Random Variables}
 \begin{itemize}
-    % TODO: Finish!
-    \item ...
+    \item Discrete | $P_W(w) = \Sigma_{(x, y): g(x,y) = w} P_{X,Y}(x, y)$
+    \item Continuous, one variable | To find $F_W(w)$, find $W = g(X)$ and solve in terms of $X$, then plug into $F_X(x)$.
+    \item Continuous, two variables | To find $F_W(w)$, find $W = g(X, Y)$ and use MAT 21D methods to find the bounds of integration.
+    \item $F_W(w) = P[W \leq w] = \iint_{g(x,y) \leq w} f_{X,Y}(x, y) dx dy$
+    \item Ex. if $W = max(X, Y)$, $F_W(w) = F_{X,Y}(w, w) = \int_{-\infty}^w \int_{-\infty}^w f_{X,Y}(x, y) dx dy$
+    \item For both cases, to find $f_W(w)$, take the derivative of $F_W(w)$.
+    \item For both cases, be careful of jump discontinuities in $F_W(w)$. If these exist, use $\delta(t)$ times the jump value to compensate.
+    \item Sum of two random variables: $W = X + Y$ | PDF $f_W(w) = \int_{-\infty}^\infty f_{X,Y}(x, w - x) = \int_{-\infty}^\infty f_{X,Y}(w - y, y) dy$
+\end{itemize}
+\textbf{Conditional Models}
+\begin{itemize}
+    % TODO: Did we even go over this in detail?
+    \item
+\end{itemize}
+\textbf{Vector Notation}
+\begin{itemize}
+    % TODO: IDKDLSFJDKlj LEHJXDXDXDXD
+    \item
+\end{itemize}
+\textbf{Sums of Random Variables}
+\begin{itemize}
+    \item MGFs (Moment generating functions) | $\Phi_X(s) = E[e^{sX}]$
+    \item
+    \begin{tabular}{|c|c|}
+        \hline
+        Name & $\Phi_X(s)$ \\
+        \hline
+        Bernoulli & $1 - p + pe^s$ \\
+        Geometric & $\frac{pe^s}{1 - (1 - p)e^s}$ \\
+        Binomial & $(1 - p + pe^s)^n$  \\
+        Pascal & $(\frac{pe^s}{1 - (1 - p)e^s})^k$ \\
+        Poisson & $e^{\alpha(e^s - 1)}$ \\
+        Discrete Uniform & $\frac{e^{sk} - e^{s(l + 1)}}{1 - e^s}$ \\
+        Uniform & $\frac{e^{bs} - e^{as}}{s(b - a)}$ \\
+        Exponential & $\frac{\lambda}{\lambda - s}$ \\
+        Erlang & $\left(\frac{\lambda}{\lambda - s}\right)^n$ \\
+        Gaussian & $e^{s\mu + s^2\sigma^2/2}$ \\
+        \hline
+    \end{tabular}
 \end{itemize}
 \end{document}
