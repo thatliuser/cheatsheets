@@ -64,33 +64,33 @@
     \item Standard deviation | $\sigma_X = \sqrt{Var[X]}$
     \item
     % TODO: Annotate what each type corresponds to in a word problem scenario
-    \begin{tabular}{|c|c|c|c|}
+    \begin{tabular}{|c|c|c|c|p{4cm}|}
         \hline
-        Name & PMF & $E[X]$ & $Var[X]$ \\
+        Name & PMF & $E[X]$ & $Var[X]$ & Use case \\
         \hline
         Bernoulli & $P_X(x) = \begin{cases}
             1 - p & x = 0, \\
             p & x = 1, \\
             0 & else \\
-        \end{cases}$ & $p$ & $p(1 - p)$ \\
+        \end{cases}$ & $p$ & $p(1 - p)$ & Probability of one event happening with probability $p$. \\
         Geometric & $P_X(x) = \begin{cases}
             p (1 - p)^{x - 1} & x = 1, 2, \ldots, \\
             0 & else \\
-        \end{cases}$ & $1/p$ & $(1 - p)/p^2$ \\
+        \end{cases}$ & $1/p$ & $(1 - p)/p^2$ & Tree diagram of $x$ events in a row until the streak is broken.\\
         Binomial & $P_X(x) = \begin{cases}
             {n \choose x} p^x (1 - p)^{n - x} & n \geq 1 \\
-        \end{cases}$ & $np$ & $np(1 - p)$ \\
+        \end{cases}$ & $np$ & $np(1 - p)$ & Probability of $k$ "successes" in $n$ fixed trials.\\
         Pascal & $P_X(x) = \begin{cases}
             {x - 1 \choose k - 1} p^k (1 - p)^{x - k} & k \geq 1 \\
-        \end{cases}$ & $k/p$ & $k(1 - p)/p^2$ \\
+        \end{cases}$ & $k/p$ & $k(1 - p)/p^2$ & Number of trials needed until $k$ unwanted type of event happens.\\
         Poisson & $P_X(x) = \begin{cases}
             \alpha^x e^{-\alpha}/x! & x = 0, 1, \ldots, \\
             0 & else \\
-        \end{cases}$ & $\alpha$ & $\alpha$ \\
+        \end{cases}$ & $\alpha$ & $\alpha$ & Used to model "arrival" of phenomenon of interest. I don't know.\\
         Discrete Uniform & $P_X(x) = \begin{cases}
             1/(l - k + 1) & x  = k, k + 1, \ldots, l \\
             0 & else \\
-        \end{cases}$ & $(k + l)/2$ & $(l - k)(l - k + 2)/12$ \\
+        \end{cases}$ & $(k + l)/2$ & $(l - k)(l - k + 2)/12$ & Probability of one outcome out of $l - k + 1$.\\
         \hline
     \end{tabular}
 \end{itemize}
@@ -183,12 +183,17 @@
     \item Discrete conditional expected val | $E[X|B] = \Sigma_{x \in B} xP_{X|B}(x)$
     \item Continous conditional expected val | $E[X|B] = \int_{-\infty}^\infty xf_{X|B}(x)dx$
     \item Conditonal variance | $Var[X|B] = E[X^2|B] - E[X|B]^2$
-    \item Continuous condtional CDF of another var | $f{X|Y}(x|y) = \frac{f_{X,Y}(x, y)}{f_Y(y)}$
+    \item Continuous condtional CDF of another var | $f_{X|Y}(x|y) = \frac{f_{X,Y}(x, y)}{f_Y(y)}$
+    \item Continuous discrete PMF of another var | $P_{X|Y}(x|y) = \frac{P_{X,Y}(x, y)}{P_Y(y)}$
     \item $E[E[g(X)|Y]] = E[g(X)]$
 \end{itemize}
 \textbf{Vector Notation}
 \begin{itemize}
-    % TODO: All of this
+    \item Random vectors | $\vec{X} = [X_1, \dots, X_n]'$
+    \item Sample value | $\vec{x} = [x_1, \dots, x_n]'$
+    \item $E[\vec{X}] = [E[X_1], \dots, E[X_n]]'$
+    \item Correlation matrix | $\vec{R}_{\vec{X}} = E[\vec{X}\vec{X}']$ (take the matrix multiplication and take expected of each value)
+    \item Covariance matrix | $\vec{C}_{\vec{X}\vec{Y}} = E[(\vec{X} - \mu_{\vec{X}})(\vec{Y} - \mu_{\vec{Y}})]$.
 \end{itemize}
 \textbf{Sums of Random Variables}
 \begin{itemize}
@@ -219,12 +224,13 @@
 \end{itemize}
 \textbf{Sample Mean}
 \begin{itemize}
-    \item $M_n(X) = \frac{X_1 + \dots + X_n}{n}$
+    \item Sample mean | $M_n(X) = \frac{X_1 + \dots + X_n}{n}$
     \item $E[M_n(X)] = E[X]$, $Var[M_n(X)] = \frac{Var[X]}{n}$
     \item Markov inequality | $P[X \geq c^2] \leq \frac{E[X]}{c^2}$ where $c$ is some constant and $P[X < 0] = 0$.
     \item Chebyshev inequality | $P[|Y - \mu_Y| \geq c] \leq \frac{Var[Y]}{c^2}$ where $c > 0$.
     \item Weak law of large \#s | $lim_{n \rightarrow \infty} P[|M_n(X) - \mu_X| \geq c] = 0$, $lim_{n \rightarrow \infty} P[|M_n(X) - \mu_X| < c] = 1$
-    \item Relative frequency $\hat{P_n}(A)$ | $lim_{n \rightarrow \infty} P[|\hat{P_n}(A) - P[A]| \geq c] = 0$
+    \item Relative frequency $\hat{P_n}(A) = M_n(X_A)$, $E[X_A] = P[A]$
+    \item $lim_{n \rightarrow \infty} P[|\hat{P_n}(A) - P[A]| \geq c] = 0$
     % TODO: Model parameters? IDK if we even went over these...
 \end{itemize}
 \end{document}
