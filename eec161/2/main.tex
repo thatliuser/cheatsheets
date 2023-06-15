@@ -63,6 +63,7 @@
     \item $Var[aX + b] = a^2 Var[X]$
     \item Standard deviation | $\sigma_X = \sqrt{Var[X]}$
     \item
+    % TODO: Annotate what each type corresponds to in a word problem scenario
     \begin{tabular}{|c|c|c|c|}
         \hline
         Name & PMF & $E[X]$ & $Var[X]$ \\
@@ -187,8 +188,7 @@
 \end{itemize}
 \textbf{Vector Notation}
 \begin{itemize}
-    % TODO: IDKDLSFJDKlj LEHJXDXDXDXD
-    \item
+    % TODO: All of this
 \end{itemize}
 \textbf{Sums of Random Variables}
 \begin{itemize}
@@ -216,5 +216,15 @@
     \item $\Phi_W(s) = \Sigma_{i = 1}^n \Phi_{X_i}(s)$
     \item Central limit theorem | Given $n$ independent random vars, the distribution is approximately Gaussian.
     \item $F_{W_n}(w) \approx \Phi\left(\frac{w - n \mu_X}{\sqrt{n \sigma_X^2}}\right)$
+\end{itemize}
+\textbf{Sample Mean}
+\begin{itemize}
+    \item $M_n(X) = \frac{X_1 + \dots + X_n}{n}$
+    \item $E[M_n(X)] = E[X]$, $Var[M_n(X)] = \frac{Var[X]}{n}$
+    \item Markov inequality | $P[X \geq c^2] \leq \frac{E[X]}{c^2}$ where $c$ is some constant and $P[X < 0] = 0$.
+    \item Chebyshev inequality | $P[|Y - \mu_Y| \geq c] \leq \frac{Var[Y]}{c^2}$ where $c > 0$.
+    \item Weak law of large \#s | $lim_{n \rightarrow \infty} P[|M_n(X) - \mu_X| \geq c] = 0$, $lim_{n \rightarrow \infty} P[|M_n(X) - \mu_X| < c] = 1$
+    \item Relative frequency $\hat{P_n}(A)$ | $lim_{n \rightarrow \infty} P[|\hat{P_n}(A) - P[A]| \geq c] = 0$
+    % TODO: Model parameters? IDK if we even went over these...
 \end{itemize}
 \end{document}
