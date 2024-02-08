@@ -12,8 +12,8 @@
 % 1 side of paper
 \begin{document}
 \begin{center}
-    \includegraphics[align=c, width=9cm]{consts.png}
-    \includegraphics[align=c, width=9cm]{props.png}
+    \includegraphics[align=c, height=8cm, width=9cm]{consts.png}
+    \includegraphics[align=c, height=8cm, width=9cm]{props.png}
 \end{center}
 % TODO: Chapter 1 concepts? Not many formulas up here, mostly concepts and geometry
 \textbf{Basics of solids}
@@ -32,29 +32,25 @@
 \end{itemize}
 \textbf{Dopants}
 \begin{itemize}
-    \item Intrinsic semiconductor means no dopants at all, extrinsic semiconductor means doped
+    \item Intrinsic means no dopants at all, extrinsic means doped. Complete ionization is assumed for all dopants.
     \item When $n_0 > p_0$, semiconductor is N-type (majority donors), and when $p_0 > n_0$, semiconductor is P-type (majority acceptors)
     \item Thermal equilibrium carrier concentrations
     \begin{itemize}
-        \item Electron concentration (unit is $cm^{-3}$): $n_0 = N_c \cdot exp\left[\frac{-(E_c - E_F)}{kT}\right]$, $n_0 \propto N_c$
-        \item Hole concentration (unit is $cm^{-3}$): $p_0 = N_v \cdot exp\left[\frac{-(E_F - E_v)}{kT}\right]$, $p_0 \propto N_v$
+        \item Electron concentration (unit is $cm^{-3}$): $n_0 = N_c \cdot exp\left[\frac{-(E_c - E_F)}{kT}\right] = n_i \cdot exp\left[\frac{E_F - E_{Fi}}{kT}\right]$, $n_0 \propto N_c = 2\left(\frac{2 \pi m_n^* kT}{h^2}\right)^{3/2}$
+        \item Hole concentration (unit is $cm^{-3}$): $p_0 = N_v \cdot exp\left[\frac{-(E_F - E_v)}{kT}\right] = p_i \cdot exp\left[\frac{-(E_F - E_{Fi})}{kT}\right]$, $p_0 \propto N_v = 2\left(\frac{2 \pi m_p^* kT}{h^2}\right)^{3/2}$
         \item $N_c$ and $N_v$ are the "effective density of states", and are \textbf{very temperature dependent} with $N = N_{T0} \cdot \frac{T}{T_0}^{3/2}$.
-        \item For an intrinsic semiconductor, $n_i = p_i$, and $n_i^2 = N_c N_v exp\left[\frac{-E_g}{kT}\right]$
+        \item For an intrinsic semiconductor, $n_i = p_i$, and $n_i^2 = N_c N_v exp\left[\frac{-E_g}{kT}\right] = N_c N_v exp\left[\frac{-(E_c - E_v)}{kT}\right]$
         \item For intrinsic AND extrinsic semiconductors, $n_0 \cdot p_0 = n_i^2$
-    \end{itemize}
-    \item Donor Fermi-Dirac probability
-    \begin{itemize}
-        \item $n_d = \frac{N_d}{1 + \frac{1}{2}exp\left(\frac{E_d - E_F}{kT}\right)}$
-        \item $p_a = \frac{N_a}{1 + \frac{1}{g}exp\left(\frac{E_F - E_a}{kT}\right)}$, $g$ is a "degeneracy factor" that's 4 for Si and GaAs.
     \end{itemize}
     \item Compenated semiconductors
     \begin{itemize}
         \item $n_0 = \frac{N_d - N_a}{2} + \sqrt{\left(\frac{N_d - N_a}{2}\right)^2 + n_i^2}$, $p_0 = \frac{N_a - N_d}{2} + \sqrt{\left(\frac{N_a - N_d}{2}\right)^2 + n_i^2}$
     \end{itemize}
-    % TODO: This is also 4.5 so read up before finishing
     \item Fermi energy modelling
     \begin{itemize}
         \item For an intrinsic semiconductor, $E_{Fi} - E_{midgap} = \frac{3}{4} kT \ln \left(\frac{m_p^*}{m_n^*}\right)$
+        \item We can use the $n_0$ functions: $E_c - E_F = kT \ln \left(\frac{N_c}{n_0}\right)$, $E_F - E_{Fi} = kT \ln \left(\frac{n_0}{n_i}\right)$ (n-type)
+        \item We can use the $p_0$ functions: $E_F - E_v = kT \ln \left(\frac{N_v}{p_0}\right)$, $E_{Fi} - E_F = kT \ln \left(\frac{p_0}{n_i}\right)$ (p-type)
     \end{itemize}
 \end{itemize}
 \end{document}
