@@ -42,7 +42,7 @@
         \item For an intrinsic semiconductor, $n_i = p_i$, and $n_i^2 = N_c N_v exp\left[\frac{-E_g}{kT}\right] = N_c N_v exp\left[\frac{-(E_c - E_v)}{kT}\right]$
         \item For intrinsic AND extrinsic semiconductors, $n_0 \cdot p_0 = n_i^2$
     \end{itemize}
-    \item Compenated semiconductors
+    \item Compensated semiconductors
     \begin{itemize}
         \item $n_0 = \frac{N_d - N_a}{2} + \sqrt{\left(\frac{N_d - N_a}{2}\right)^2 + n_i^2}$, $p_0 = \frac{N_a - N_d}{2} + \sqrt{\left(\frac{N_a - N_d}{2}\right)^2 + n_i^2}$
     \end{itemize}
@@ -52,5 +52,16 @@
         \item We can use the $n_0$ functions: $E_c - E_F = kT \ln \left(\frac{N_c}{n_0}\right)$, $E_F - E_{Fi} = kT \ln \left(\frac{n_0}{n_i}\right)$ (n-type)
         \item We can use the $p_0$ functions: $E_F - E_v = kT \ln \left(\frac{N_v}{p_0}\right)$, $E_{Fi} - E_F = kT \ln \left(\frac{p_0}{n_i}\right)$ (p-type)
     \end{itemize}
+\end{itemize}
+\textbf{Carrier drift}
+\begin{itemize}
+    \item $J_{drf} = e(\mu_n n + \mu_p p)E = \sigma \cdot E$, $\rho = \frac{1}{\sigma} = \frac{1}{e(\mu_n n + \mu_p p)}$. N-type and P-type $n >> p$, $p >> n$ applies for simplification
+    \item $J_{diff} = J_{n|diff} + J_{p|diff}$, $J_{n|diff} = e D_n \nabla{n} = e D_n \frac{dn}{dx}$ (in 2D), $J_{p|diff} = -e D_p \nabla{p} = -e D_p \frac{dp}{dx}$ (in 2D)
+    \item $J = J_{drf} + J_{diff}$, $\frac{D_n}{\mu_n} = \frac{D_p}{\mu_p} = \frac{kT}{e}$, $\mu$ unit is $\frac{cm^2}{V \cdot s}$, $J$ unit is $\frac{A}{cm^2}$, $D$ unit is $\frac{cm^2}{s}$
+    \item Flux is the true direction of electrons and holes. Current is opposite of flux for electrons, same for holes. Use flux for intuition
+\end{itemize}
+\textbf{Continuity equation}
+\begin{itemize}
+    \item Hi
 \end{itemize}
 \end{document}
