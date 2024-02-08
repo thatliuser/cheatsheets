@@ -12,8 +12,10 @@
 % 1 side of paper
 \begin{document}
 \begin{center}
-    \includegraphics[align=c, height=8cm, width=9cm]{consts.png}
-    \includegraphics[align=c, height=8cm, width=9cm]{props.png}
+    \includegraphics[align=c, height=7cm, width=4cm]{consts.png}
+    \includegraphics[align=c, height=7cm, width=4.5cm]{props.png}
+    \includegraphics[align=c, height=7cm, width=4cm]{concentration.png}
+    \includegraphics[align=c, height=7cm, width=7cm]{continuity.png}
 \end{center}
 % TODO: Chapter 1 concepts? Not many formulas up here, mostly concepts and geometry
 \textbf{Basics of solids}
@@ -62,6 +64,13 @@
 \end{itemize}
 \textbf{Continuity equation}
 \begin{itemize}
-    \item Hi
+    \item Low injection means low number of excess carriers vs. equilibrium carriers
+    \item P-type under low injection: $D_n \frac{\partial^2(\delta n)}{\partial x^2} + \delta n \mu_n \frac{\partial E}{\partial x} + \mu_n E \frac{\partial (\delta n)}{\partial x} + g' - \frac{\delta n}{\tau_{n0}} = \frac{\partial (\delta n)}{\partial t}$
+    \item N-type under low injection: $D_p \frac{\partial^2(\delta p)}{\partial x^2} - \delta p \mu_p \frac{\partial E}{\partial x} - \mu_p E \frac{\partial (\delta p)}{\partial x} + g' - \frac{\delta p}{\tau_{p0}} = \frac{\partial (\delta p)}{\partial t}$
+    \item $g'$ is generation, $\frac{\delta n}{\tau_{n0}}$ is recombination ($\tau_{n0}$ is the excess carrier lifetime), $D_n \dots$ is diffusion, $\mu_n E \dots$ is drift
+    \item Case 1: Steady state with no additional carrier generation process and no drift ($g' = 0, \frac{\partial}{\partial t} = 0, E = 0$)
+    \item Case 2: No drift and no carrier gradient ($\frac{\partial}{\partial x} = 0, E = 0$)
+    \item Case 3: Steady state with no additional carrier generation process, no drift, no recombination ($g' = 0, \frac{\partial}{\partial t} = 0, E = 0, \tau_n \rightarrow \infty$)
+    \item Case 4: No additional carrier generation process and uniform E field ($g' = 0, \frac{\partial E}{\partial x} = 0$)
 \end{itemize}
 \end{document}
