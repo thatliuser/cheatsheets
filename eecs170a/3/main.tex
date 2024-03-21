@@ -124,11 +124,11 @@
 \end{center}
 \textbf{MOS capacitors}
 \begin{itemize}
-    \item $\phi_b$ is the charge difference between the metal and the vacuum level (where an electron is \textit{detached} from its atom)
-    \item $\phi_s$ is the charge difference between the semiconductor's fermi energy and the vacuum level
-    \item $\phi_F$ is the charge difference between the intrinsic fermi and fermi levels of the semiconductor side
+    \item $\Phi_b$ is the charge difference between the metal and the vacuum level (where an electron is \textit{detached} from its atom)
+    \item $\Phi_s$ is the charge difference between the semiconductor's fermi energy and the vacuum level
+    \item $\Phi_F$ is the charge difference between the intrinsic fermi and fermi levels of the semiconductor side
     \item $\chi$ is the electron affinity and is the voltage difference between the semiconductor's conduction band and the vacuum level
-    \item We assume that the MOS is at flat band with no external voltage for convenience ($\phi_b = \phi_s$)
+    \item We assume that the MOS is at flat band with no external voltage for convenience ($\Phi_b = \Phi_s$)
     \item 3 modes: accumulation, depletion, inversion
     \begin{itemize}
         \item Accumulation is when the voltage injects excess carriers of the same charge as the semiconductor
@@ -137,7 +137,7 @@
         \item For example, N-type at inversion looks like P-type and P-type at inversion looks like N-type
         \item The boundary between depletion and inversion is $V_G = V_T$ (the gate voltage is equal to the threshold).
     \end{itemize}
-    \item Potential difference threshold (external voltage where \textit{no} charge is on the capacitor): $\phi_s = 2 \cdot \phi_F$
+    \item Potential difference threshold (external voltage where \textit{no} charge is on the capacitor): $\phi_s = 2 \cdot \phi_F$, $\phi_s$ is the band gap between oxide boundary and "bulk" (quasi-neutral semiconductor region)
     \item Depletion layer width: $W = \sqrt{\frac{2 K_s \epsilon_0}{q N_A} \cdot \phi_s}$, depletion space charge density: $Q'_{SD}(max) = e \cdot N_A \cdot W$ for p-type, $Q'_{SD}(max) = e \cdot N_D \cdot W$ for n-type
     \item Surface potential: $\phi_s = \frac{kT}{q} \cdot \ln\left(\frac{N_A}{n_i}\right)$ for p-type, $\phi_s = \frac{kT}{q} \cdot \ln\left(\frac{N_D}{n_i}\right)$ for n-type
 \end{itemize}
@@ -145,6 +145,9 @@
     \includegraphics[align=c, width=4.5cm]{mosflat.png}
     \includegraphics[align=c, width=4.5cm]{moscv.png}
     \includegraphics[align=c, width=4.5cm]{moscap.png}
+    \includegraphics[align=c, height=1.5cm]{mosgatev.png}
+    \includegraphics[align=c, height=1.5cm]{mosfermi.png}
+    \includegraphics[align=c, height=4.5cm]{mosworkfuncs.png}
 \end{center}
 \textbf{MOSFETs}
 \begin{itemize}
@@ -159,5 +162,8 @@
 \begin{center}
     \includegraphics[align=c, height=4.5cm]{oxides.png}
     \includegraphics[align=c, height=4.5cm]{mosfetcurves.png}
+    \includegraphics[align=c, height=2.5cm]{mosfetthreshold.png}
+    \includegraphics[align=c, height=2.5cm]{mosfetdrain.png}
+    \includegraphics[align=c, height=4cm]{mosfetdiagram.png}
 \end{center}
 \end{document}
