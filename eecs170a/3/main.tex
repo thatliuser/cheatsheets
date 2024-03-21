@@ -103,9 +103,10 @@
     \item Base transport factor ($\alpha_{Tnpn} = \frac{J_{nC}}{J_{nE}}$) - Ratio of minority current through collector to emitter. Want close to 1 (no leakage through base).
     \item Approximations for gain factors (ignoring exponential values)
     \begin{itemize}
-        % TODO: Add the unsimplified general equations for gain
         \item $\gamma = \frac{1}{1 + \frac{D_E N_B L_B}{D_B N_E L_E} \cdot \frac{\sinh(W / L_B)}{\cosh(W / L_B)}}$
-        \item $\alpha_T = \frac{1}{\cosh(W / L_B)}$, Common base current gain - $\alpha_{dc} = \gamma \cdot \alpha_T$, Common emitter current gain - $\beta_{dc} = \frac{I_C}{I_B} = \frac{\alpha_{dc}}{1 - \alpha_{dc}}$
+        \item $\gamma \approx \frac{1}{1 + \frac{D_E N_B W}{D_B N_E L_E}}$ if narrow base approx is allowed $(W \ll L_E)$. You can assume sinh is approximately a straight line.
+        \item $\alpha_T = \frac{1}{\cosh(W / L_B)}$, Common base current gain - $\alpha_{dc} = \gamma \cdot \alpha_T = \frac{I_C}{I_E}$, Common emitter current gain - $\beta_{dc} = \frac{I_C}{I_B} = \frac{\alpha_{dc}}{1 - \alpha_{dc}}$
+        \item $\alpha_T \approx \frac{1}{1 + \frac{1}{2} \cdot \left(\frac{W}{L_B}\right)^2}$ if narrow base approx is allowed, by Taylor series
         \item KCL of the BJT at forward bias: $I_E = I_B + I_C$
     \end{itemize}
 \end{itemize}
@@ -117,6 +118,9 @@
     \includegraphics[align=c, height=4.5cm]{narrowcurrent.png}
     \includegraphics[align=c, height=4.5cm]{pnpfwdcarriers.png}
     \includegraphics[align=c, height=4.5cm]{bjtcurrents.png}
+    \includegraphics[align=c, height=4.5cm]{bjtcurrenteqs.png}
+    \includegraphics[align=c, height=1cm]{bjtic.png}
+    \includegraphics[align=c, height=2cm]{bjtbaseapprox.png}
 \end{center}
 \textbf{MOS capacitors}
 \begin{itemize}
